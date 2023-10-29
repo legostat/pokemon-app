@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "@app/store/hooks";
 import {
+  selectPokemonsType,
   selectPokemonsList,
   selectPokemonsLoadingStatus,
 } from "@app/store/features/pokemonsSlice";
@@ -14,10 +15,12 @@ import { ErrorMesage } from "@app/components/ErrorMessage/error-mesage.component
 
 import styles from "./home.module.scss";
 import { Search } from "@app/components/Search/search.component";
+import { Filter } from "@app/components/Filter/filter.component";
 
 export const Home = () => {
   const pokemons = useAppSelector(selectPokemonsList);
   const loadingStatus = useAppSelector(selectPokemonsLoadingStatus);
+  const pokemonsType = useAppSelector(selectPokemonsType);
 
   const dispatch = useAppDispatch();
 
@@ -43,8 +46,9 @@ export const Home = () => {
       ) : (
         <>
           <Search />
+          <Filter />
           <PokemonsList pokemons={pokemons} />
-          <Pagination />
+          {pokemonsType ? null : <Pagination />}
         </>
       )}
     </div>

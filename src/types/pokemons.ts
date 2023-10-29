@@ -50,3 +50,13 @@ export type DetailPokemon = {
   moves: PokemonMove[];
   stats: PokemonStat[];
 };
+
+export type IndexedPokemonByType = {
+  pokemon: IndexedPokemon;
+  slot: string;
+};
+
+export type PokemonsByTypeListResponse = {
+  id: number;
+  pokemon: IndexedPokemonByType[];
+};
