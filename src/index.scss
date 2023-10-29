@@ -1,7 +1,10 @@
 :root {
-  --dark: #2e2e2e;
+  --white: #ffffff;
   --light: #fcf9f9;
+  --dark: #2e2e2e;
+  --gray-100: #d3d3d3;
   --blue-100: #d8f1fa;
+  --pink-100: #fff0f2;
 }
 
 @font-face {
@@ -22,6 +25,7 @@
 body {
   margin: 0;
   font-family: "Onest", sans-serif;
+  color: var(--dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

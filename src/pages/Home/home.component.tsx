@@ -1,17 +1,52 @@
-import { useAppSelector } from "@app/store/hooks";
-import { selectPokemonsList } from "@app/store/features/pokemonsSlice";
+import { useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "@app/store/hooks";
+import {
+  selectPokemonsList,
+  selectPokemonsLoadingStatus,
+} from "@app/store/features/pokemonsSlice";
+import { clearSearchResult } from "@app/store/features/searchSlice";
+
 import { PokemonsList } from "@app/components/PokemonsList/pokemons-list.component";
+import { Pagination } from "@app/components/Pagination/pagination.component";
+
+import { Loader } from "@app/components/Loader/loader.component";
+import { ErrorMesage } from "@app/components/ErrorMessage/error-mesage.component";
 
 import styles from "./home.module.scss";
-import { Pagination } from "@app/components/Pagination/pagination.component";
+import { Search } from "@app/components/Search/search.component";
 
 export const Home = () => {
   const pokemons = useAppSelector(selectPokemonsList);
+  const loadingStatus = useAppSelector(selectPokemonsLoadingStatus);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (loadingStatus === "idle" && pokemons.length > 0) {
+      dispatch(clearSearchResult());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pokemons.length]);
+
+  if (loadingStatus === "fail") {
+    return (
+      <div className={styles.home}>
+        <ErrorMesage />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.home}>
-      <PokemonsList pokemons={pokemons} />
-      <Pagination />
+      {loadingStatus === "loading" && pokemons.length === 0 ? (
+        <Loader />
+      ) : (
+        <>
+          <Search />
+          <PokemonsList pokemons={pokemons} />
+          <Pagination />
+        </>
+      )}
     </div>
   );
 };

@@ -4,7 +4,7 @@
   justify-content: space-between;
   width: 100%;
   max-width: 1480px;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
 
   &__btn {
     cursor: pointer;
@@ -25,11 +25,11 @@
 
     &[disabled] {
       cursor: not-allowed;
-      color: lightgray;
+      color: var(--gray-100);
 
       &:hover {
         background-color: var(--light);
-        color: lightgray;
+        color: var(--gray-100);
       }
     }
   }

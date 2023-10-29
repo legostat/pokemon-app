@@ -4,10 +4,10 @@ export type IndexedPokemon = {
 };
 
 export type PokemonsListResponse = {
-  count?: number;
-  next?: string | null;
-  previous?: string | null;
-  results?: IndexedPokemon[];
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: IndexedPokemon[];
 };
 
 export type ListPokemon = IndexedPokemon & {
