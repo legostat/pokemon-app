@@ -6,7 +6,7 @@ export type IndexedPokemon = {
 export type PokemonsListResponse = {
   count?: number;
   next?: string | null;
-  previuos?: string | null;
+  previous?: string | null;
   results?: IndexedPokemon[];
 };
 
@@ -29,11 +29,10 @@ type PokemonMove = {
 };
 
 type PokemonStat = {
-  base_stat: number;
-  effort: number;
   stat: {
     name: string;
   };
+  base_stat: number;
 };
 
 export type DetailPokemon = {

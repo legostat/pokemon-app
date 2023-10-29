@@ -1,0 +1,180 @@
+.pokemonDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: fit-content;
+  margin: 0 auto 3.4rem;
+
+  @media screen and (min-width: 991px) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  &__left {
+    width: 300px;
+    padding: 30px;
+    border-radius: 0.75rem;
+    background-color: var(--light);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+
+    @media screen and (min-width: 640px) {
+      width: 500px;
+    }
+
+    @media screen and (min-width: 991px) {
+      width: 350px;
+    }
+
+    @media screen and (min-width: px) {
+      width: 350px;
+    }
+  }
+
+  &__right {
+    flex: none;
+    width: 300px;
+    padding: 30px;
+    border-radius: 0.75rem;
+    background-color: var(--light);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.025rem;
+
+    @media screen and (min-width: 640px) {
+      width: 500px;
+    }
+
+    @media screen and (min-width: 991px) {
+      padding: 20px 15px;
+      width: 550px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 600px;
+    }
+  }
+
+  &__img {
+    flex: none;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-position: center;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 100;
+    font-size: 2rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--dark, #2e2e2e);
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 640px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__list_title {
+    margin: {
+      top: 0;
+      bottom: 1.25rem;
+    }
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.54rem;
+    font-weight: 300;
+
+    @media screen and (min-width: 640px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__stats {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 0.5rem;
+
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (min-width: 1440px) {
+      gap: 0.75rem;
+    }
+
+    li {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: capitalize;
+
+      @media screen and (min-width: 649px) {
+        font-size: 1.3rem;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 1.15rem;
+      }
+
+      @media screen and (min-width: 1440px) {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &__abilities {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    li {
+      padding: 7px 10px;
+      background-color: #3d0606;
+      border-radius: 7px;
+      color: var(--light);
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: 0.15rem;
+      text-transform: capitalize;
+    }
+  }
+
+  &__moves {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 7px 10px;
+      background-color: #062e3d;
+      border-radius: 5px;
+      color: var(--light);
+      font-size: 1.15rem;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      text-transform: capitalize;
+    }
+  }
+}

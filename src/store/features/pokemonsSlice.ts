@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@app/store/store";
 import type { PokemonsListResponse } from "@app/types/pokemons";
-import { POKEMON_API_POKEMON_URL } from "@app/config";
 import { httpClient } from "@app/api/httpClient";
+import { POKEMON_API_POKEMON_URL } from "@app/config";
 type PokemonsState = PokemonsListResponse & {
   status: "idle" | "loading" | "fail";
 };
@@ -11,7 +10,7 @@ type PokemonsState = PokemonsListResponse & {
 const initialState: PokemonsState = {
   count: 0,
   next: POKEMON_API_POKEMON_URL,
-  previuos: null,
+  previous: null,
   results: [],
   status: "idle",
 };
@@ -36,7 +35,7 @@ const pokemonsSlice = createSlice({
       .addCase(fetchPokemons.fulfilled, (state, action) => {
         state.count = action.payload.count;
         state.next = action.payload.next;
-        state.previuos = action.payload.previuos;
+        state.previous = action.payload.previous;
         state.results = action.payload.results;
         state.status = "idle";
       })
@@ -47,7 +46,7 @@ const pokemonsSlice = createSlice({
 });
 
 export const selectNexlUrl = (state: RootState) => state.pokemons.next;
-export const selecPpreviuosUrl = (state: RootState) => state.pokemons.previuos;
+export const selecPreviousUrl = (state: RootState) => state.pokemons.previous;
 export const selectPokemonsList = (state: RootState) =>
   state.pokemons.results ? state.pokemons.results : [];
 export const selectPokemonsCount = (state: RootState) => state.pokemons.count;

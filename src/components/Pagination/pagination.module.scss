@@ -1,7 +1,10 @@
-.detail {
-  padding: 2.5rem 1.5rem;
-  background-color: rgb(255, 240, 242);
-  min-height: 100vh;
+.Pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
 
   &__btn {
     cursor: pointer;
@@ -11,7 +14,7 @@
     color: var(--dark);
     padding: 15px 18px;
     font-size: 1.5rem;
-    font-weight: 200;
+    font-weight: 100;
     letter-spacing: 0.25em;
     transition: all 0.3s ease-in;
 
@@ -20,9 +23,14 @@
       color: var(--light);
     }
 
-    &__wrapper {
-      display: flex;
-      justify-content: center;
+    &[disabled] {
+      cursor: not-allowed;
+      color: lightgray;
+
+      &:hover {
+        background-color: var(--light);
+        color: lightgray;
+      }
     }
   }
 }
